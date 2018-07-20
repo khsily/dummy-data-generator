@@ -1,9 +1,11 @@
 const dummyjson = require('dummy-json');
+const helpers = require('handlebars-helpers');
 
 /**
  * 헬퍼 등록
  */
 module.exports = {
+  math: helpers.math(),
   link: (index) => renderArray([
     'https://www.youtube.com/watch?v=Bjk0gOCinyc',
     'http://www.naver.com',

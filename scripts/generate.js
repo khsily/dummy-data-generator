@@ -3,7 +3,6 @@ require('colors');
 const dummyjson = require('dummy-json');
 const fs = require('fs');
 const path = require('path');
-const helpers = require('handlebars-helpers');
 
 const mockdata = require('../mockdata');
 const { writeFile } = require('../utils');
@@ -41,10 +40,7 @@ function generateData(path, ext, fileName) {
   const template = fs.readFileSync(path, { encoding: 'utf8' });
 
   let result = `${dummyjson.parse(template, {
-    helpers: {
-      math: helpers.math(),
-      ...mockdata,
-    }
+    helpers: mockdata
   })}`;
   if (ext === 'js') result = `export const ${fileName} = ${result}\n`;
   result = result.replace(/&#x3D;/g, '=');
