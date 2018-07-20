@@ -1,0 +1,10 @@
+[
+  {{#repeat 5}}
+  {
+    id: {{add @index 1}},
+    name: '{{firstName}} {{lastName}}',
+    date: '{{date 2017 2018 'YYYY-MM-DD'}}',
+    image: '{{image}}'
+  },
+  {{/repeat}}
+]
